@@ -1,0 +1,150 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Poster.png" type="Texture" id=2]
+[ext_resource path="res://Slotmachine.png" type="Texture" id=3]
+[ext_resource path="res://나눔바른고딕 Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://VButton.png" type="Texture" id=5]
+[ext_resource path="res://RButton.png" type="Texture" id=6]
+[ext_resource path="res://BButton.png" type="Texture" id=7]
+[ext_resource path="res://HButton.png" type="Texture" id=8]
+[ext_resource path="res://vertical.png" type="Texture" id=9]
+[ext_resource path="res://Horizontal.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 51
+font_data = ExtResource( 4 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Poster" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Slotmachine" type="Sprite" parent="."]
+position = Vector2( 1035.01, 212.616 )
+scale = Vector2( 3.28605, 3.28605 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Vnum" type="HBoxContainer" parent="."]
+margin_left = 1035.18
+margin_top = 189.0
+margin_right = 1140.18
+margin_bottom = 262.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Align" type="VBoxContainer" parent="Vnum"]
+margin_left = 22.0
+margin_right = 82.0
+margin_bottom = 73.0
+alignment = 1
+
+[node name="VNUM" type="RichTextLabel" parent="Vnum/Align"]
+margin_top = 11.0
+margin_right = 60.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 60, 50 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "00"
+scroll_active = false
+
+[node name="Hnum" type="HBoxContainer" parent="."]
+margin_left = 913.365
+margin_top = 187.947
+margin_right = 1017.36
+margin_bottom = 259.947
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Align" type="VBoxContainer" parent="Hnum"]
+margin_left = 22.0
+margin_right = 82.0
+margin_bottom = 72.0
+alignment = 1
+
+[node name="HNUM" type="RichTextLabel" parent="Hnum/Align"]
+margin_top = 11.0
+margin_right = 60.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 60, 50 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+visible_characters = 15
+text = "00"
+scroll_active = false
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+margin_left = 873.64
+margin_top = 271.0
+margin_right = 1189.64
+margin_bottom = 309.0
+alignment = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HButton" type="Button" parent="Buttons"]
+margin_right = 76.0
+margin_bottom = 38.0
+icon = ExtResource( 5 )
+flat = true
+
+[node name="RButton" type="Button" parent="Buttons"]
+margin_left = 80.0
+margin_right = 156.0
+margin_bottom = 38.0
+icon = ExtResource( 6 )
+flat = true
+
+[node name="Button" type="Button" parent="Buttons"]
+margin_left = 160.0
+margin_right = 236.0
+margin_bottom = 38.0
+icon = ExtResource( 7 )
+flat = true
+
+[node name="VButton" type="Button" parent="Buttons"]
+margin_left = 240.0
+margin_right = 316.0
+margin_bottom = 38.0
+icon = ExtResource( 8 )
+flat = true
+
+[node name="Vertical" type="RigidBody2D" parent="."]
+position = Vector2( -8, 0 )
+
+[node name="Vertical Line" type="Sprite" parent="Vertical"]
+texture = ExtResource( 9 )
+centered = false
+
+[node name="Horizontal" type="RigidBody2D" parent="."]
+
+[node name="Horizontal Line" type="Sprite" parent="Horizontal"]
+position = Vector2( 0, -8 )
+texture = ExtResource( 10 )
+centered = false
+[connection signal="pressed" from="Buttons/HButton" to="." method="_on_HButton_pressed"]
+[connection signal="pressed" from="Buttons/RButton" to="." method="_on_RButton_pressed"]
+[connection signal="pressed" from="Buttons/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Buttons/VButton" to="." method="_on_VButton_pressed"]
